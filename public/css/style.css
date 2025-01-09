@@ -1,0 +1,325 @@
+/* General Styles */
+body {
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: white;
+    color: black;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    flex: 1;
+}
+
+/* Navbar */
+.navbar {
+    height: 5rem;
+    background-color: white;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.fa-compass {
+    color: #fe424d;
+    font-size: 2rem;
+}
+
+.nav-link {
+    color: #222222 !important;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    color: gray;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    background-color: #ecf1ff;
+    color: black;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+footer .f-info-links a {
+    color: black;
+    text-decoration: none;
+    margin: 0 10px;
+    line-height: 3;
+}
+
+footer .f-info-links a:hover {
+    text-decoration: underline;
+}
+
+footer .f-info-socials i {
+    color: black;
+    margin: 0 10px;
+    font-size: 20px;
+    cursor: pointer;
+    line-height: 3;
+}
+
+footer .f-info-socials i:hover {
+    color: gray;
+}
+
+/* Cards */
+.listing-card {
+    border: none !important;
+    margin-bottom: 2rem;
+}
+.listing-link{
+    text-decoration: none !important;
+}
+
+.card-img-top {
+    width: 100% !important;
+    object-fit: cover !important;
+
+}
+
+div.card-body{
+    margin-left: 10px;
+}
+
+.card-body {
+    padding: 0 !important;
+    text-decoration: none !important;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    
+}
+
+.card-text p {
+    font-weight: 400 !important;
+    text-decoration: none !important;
+}
+
+.card-img-overlay {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.card-img-overlay:hover {
+    opacity: 0.2;
+    background-color: white;
+
+}
+
+/* Buttons */
+.add-btn, .edit-btn {
+    background-color: #fe424d !important;
+    border: none !important;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.add-btn:hover, .edit-btn:hover {
+    background-color: #e33d42;
+}
+
+/* Show Page */
+.show-img {
+    height: 30vh;
+}
+
+.btns {
+    display: flex;
+}
+
+/* Remove margin and padding for the main div */
+.card.col-6.offset-3.show-card.listing-card {
+    background-color: rgb(230, 230, 230);
+
+    margin: 11; 
+    padding: 0; 
+}
+
+.show-card {
+    
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Dark Mode */
+
+/* Navbar */
+.navbar {
+    height: 5rem;
+    background-color: white;
+    color: black;
+    transition: background-color 0.3s, color 0.3s;
+}
+/* Navbar */
+.navbar {
+    height: 5rem;
+    background-color: white;
+    color: black;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark Mode Styles */
+body.dark-mode .navbar {
+    background-color: #333;
+    color: white;
+}
+
+
+.fa-compass {
+    color: #fe424d;
+    font-size: 2rem;
+}
+
+.nav-link {
+    color: #222222 !important;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: gray;
+}
+
+/* Dark Mode for links */
+body.dark-mode .nav-link {
+    color: #f0f0f0 !important;
+}
+
+body.dark-mode .nav-link:hover {
+    color: lightgray;
+}
+
+/* Dark Mode Styles */
+body.dark-mode .navbar {
+    background-color: #333;
+    color: white;
+}
+
+.fa-compass {
+    color: #fe424d;
+    font-size: 2rem;
+}
+
+.nav-link {
+    color: #222222 !important;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: gray;
+}
+
+/* Dark Mode for links */
+body.dark-mode .nav-link {
+    color: #f0f0f0 !important;
+}
+
+body.dark-mode .nav-link:hover {
+    color: lightgray;
+}
+
+body.dark-mode .tax-toggle{
+    border: 1px solid white;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+body.dark-mode .navbar {
+    background-color: #1e1e1e;
+    color: white;
+}
+
+body.dark-mode .nav-link {
+    color: white;
+}
+
+body.dark-mode .nav-link:hover {
+    color: lightgray;
+}
+
+body.dark-mode footer {
+    border-top: 1px solid rgb(224, 224, 224);
+    background-color: #1e1e1e;
+    color: white;
+}
+
+body.dark-mode footer .f-info-links a {
+    color: #4caf50;
+}
+
+body.dark-mode footer .f-info-socials i {
+    color: white;
+}
+
+body.dark-mode footer .f-info-socials i:hover {
+    color: #76ff03;
+}
+
+body.dark-mode .add-btn, body.dark-mode .edit-btn {
+    background-color: #333;
+    color: white;
+    border: 1px solid #555;
+}
+
+body.dark-mode .card-img-overlay:hover {
+    background-color: #222;
+}
+
+
+
+
+/* Button Dark Mode css */
+
+    a.nav-link.darkMode {
+        font-size: 1.5rem;
+        padding-top: 0;
+    }
+
+    #darkModeButton {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background-color: #f0f0f0;
+        border-radius: 5px;
+        text-decoration: none;
+        color: #222222;
+        border: 1px solid #ccc;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    }
+
+    #darkModeButton:hover {
+        background-color: #e0e0e0;
+        color: #000;
+        border-color: #999;
+    }
+
+    #darkModeToggle {
+        width: 1rem;
+        height: 1rem;
+        opacity: 0;
+        position: absolute;
+    }
+
+    body.dark-mode #darkModeButton {
+        background-color: #333;
+        color: white;
+        border-color: #444;
+    }
+
+    #darkModeButton i {
+        font-size: 3.5rem;
+        transition: color 0.3s;
+    }
+
+    body.dark-mode #darkModeButton i {
+        color: white;
+    }

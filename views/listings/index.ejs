@@ -43,39 +43,42 @@
 
   </style>
   <div id="filters">
-    <div class="filter">  
-        <div><i class="fa-solid fa-fire"></i></div>
-        <p>Trending</p>
+    <div class="filter" onclick="window.open('https://www.google.com/search?q=trending-tourist-places-worldwide', '_blank')">
+      <div>
+          <i class="fa-solid fa-fire"></i>
+      </div>
+      <p>Trending</p>
     </div>
-    <div class="filter">  
+  
+    <div class="filter" onclick="window.open('https://www.google.com/search?q=world-wide-hotel-booking-website', '_blank')">  
       <div><i class="fa-solid fa-bed"></i></div>
       <p>Rooms</p>
     </div>
-    <div class="filter">  
+    <div class="filter" onclick="window.open('https://www.google.com/search?q=best-city-in-the-world', '_blank')">  
       <div><i class="fa-solid fa-mountain-city"></i></div>
       <p>Iconic Cities</p>
     </div>
-    <div class="filter">  
+    <div class="filter" onclick="window.open('https://www.google.com/search?q=best-mountains-in-the-world', '_blank')">  
       <div><i class="fa-solid fa-mountain"></i></div>
       <p>Mountains</p>
     </div>
-    <div class="filter">  
+    <div class="filter" onclick="window.open('https://www.google.com/search?q=best-castles-in-the-world', '_blank')">  
       <div><i class="fa-brands fa-fort-awesome"></i></div>
       <p>Castles</p>
     </div>
-    <div class="filter">  
+    <div class="filter" onclick="window.open('https://www.google.com/search?q=best-swimming-pools-in-the-world', '_blank')">  
       <div><i class="fa-solid fa-person-swimming"></i></div>
       <p>Amaxin pools</p>
     </div>
-    <div class="filter">  
+    <div class="filter" onclick="window.open('https://www.google.com/search?q=best-camping-in-the-world', '_blank')">  
       <div><i class="fa-solid fa-campground"></i></div>
       <p>Camping</p>
     </div>
-    <div class="filter">  
+    <div class="filter" onclick="window.open('https://www.google.com/search?q=best-farms-in-the-world', '_blank')">  
       <div><i class="fa-solid fa-tractor"></i></div>
       <p>Farms</p>
     </div>
-    <div class="filter">  
+    <div class="filter" onclick="window.open('https://www.google.com/search?q=best-arctic-in-the-world', '_blank')">  
       <div><i class="fa-solid fa-snowflake"></i></div>
       <p>Arctic</p>
     </div>
@@ -88,23 +91,27 @@
   </div>
   
 <!-- cards -->
+
 <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
-  <% for(let listing of allListings) { %>
-  <a href="/listings/<%= listing._id %>" class="listing-link">  
-    <div class="card col listing-card" >
-      <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image" style="height:20rem">
-      <div class="card-img-overlay"></div>
-      <div class="card-body">
-        <p class="card-text">
-            <b><%= listing.title %></b><br>
-          &#8377; <%= listing.price.toLocaleString("en-IN") %> /night
-          <i class="tax-info">&nbsp; &nbsp; +18% GST</i>
-        </p>
-      </div>
-    </div>
-  </a>
+  <% if (allListings && allListings.length > 0) { %>
+    <% for (let listing of allListings) { %>
+      <a href="/listings/<%= listing._id %>" class="listing-link">
+        <div class="card col listing-card">
+          <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image" style="height:20rem">
+          <div class="card-body">
+            <p class="card-text">
+              <b><%= listing.title %></b><br>
+              &#8377; <%= listing.price.toLocaleString("en-IN") %> /night
+              <i class="tax-info">&nbsp; &nbsp; +18% GST</i>
+            </p>
+          </div>
+        </div>
+      </a>
+    <% } %>
   <% } %>
 </div>
+
+
 </body>
 
 <script>

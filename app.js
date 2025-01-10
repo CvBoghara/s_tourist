@@ -19,6 +19,8 @@ const User  = require("./models/user.js");
 const listingRouter = require("./routes/listing.js");
 const reviewRouter= require("./routes/review.js");
 const userRouter= require("./routes/user.js");
+const searchRouter = require('./routes/search.js')
+
 
 const dbUrl = process.env.ATLASDB_URL;
 main()
@@ -87,6 +89,8 @@ app.use((req,res,next) => {
   next();
 });
 
+app.use("/search",searchRouter)
+
 // app.get("/demouser",async(req,res) => {
 //   let fakeUser = new User({
 //     email: "student@gmail.com",
@@ -110,6 +114,9 @@ app.use((err,req,res,next) => {
   res.status(statusCode).render("error.ejs",{message});
   // res.status(statusCode).send(message);
 });
+
+
+
 
 app.listen(8080, () => {
   console.log("server is listening to port 8080");

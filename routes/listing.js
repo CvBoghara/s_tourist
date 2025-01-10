@@ -9,7 +9,6 @@ const {storage} = require("../cloudConfig.js");
 const upload = multer({storage})
 
 
-
 // index ,create route
   router
     .route("/")
@@ -23,7 +22,7 @@ const upload = multer({storage})
 
 //New Route
   router.get("/new",isLoggedIn, listingController.renderNewForm);
-
+     
 // show,update,delete route
   router
       .route("/:id")
@@ -48,3 +47,5 @@ const upload = multer({storage})
     wrapAsync( listingController.renderEditForm));
   
     module.exports = router;
+
+      

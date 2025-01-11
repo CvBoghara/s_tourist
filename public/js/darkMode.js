@@ -1,5 +1,4 @@
 
-
 document.addEventListener("DOMContentLoaded", () => {
   const toggleSwitch = document.getElementById("darkModeToggle");
 
@@ -20,4 +19,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
 

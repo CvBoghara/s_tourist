@@ -16,3 +16,11 @@
       }, false)
     })
   })();
+
+  const navbarCollapse = document.getElementById('navbarNavAltMarkup');
+navbarCollapse.addEventListener('show.bs.collapse', () => {
+  navbarCollapse.style.height = '200px';
+});
+navbarCollapse.addEventListener('hidden.bs.collapse', () => {
+  navbarCollapse.style.height = ''; // Reset to default
+});

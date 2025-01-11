@@ -1,61 +1,176 @@
 <style>
-  .search-btn{
-    background-color: #fe424d;
-    color: #fff;
-    border-radius: 25px;
-    padding: 0 1rem 0 1rem;
+  .navbar {
+    padding: 0.5rem 1rem;
   }
-  .search-btn:hover{
-    background-color: #fe424d;
-    color: #fff;
-  }
-  .search-btn i {
-    display: inline;
-    margin-right: 0.5rem;
-  }
-  .search-inp{
-    border-radius: 25px;
-    padding: 0.5rem 3rem 0.5rem 3rem;
+
+  .navbar-toggler {
+    padding: 0.25rem 0.5rem;
     font-size: 1rem;
   }
 
+  .search-btn {
+    background-color: #fe424d;
+    color: #fff;
+    border-radius: 25px;
+    padding: 0 1rem;
+    font-size: 0.9rem;
+  }
+
+  .search-btn:hover {
+    background-color: #fe424d;
+    color: #fff;
+  }
+
+  .search-inp {
+    border-radius: 25px;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.9rem;
+    max-width: 150px;
+  }
+
+  .navbar-collapse {
+    flex-direction: column;
+    align-items: flex-end;
+    background-color: #fff;
+    transition: height 0.3s ease;
+    padding: 0.5rem 1rem;
+  }
+
+  .bg-custom-dark-blue {
+    background-color: #ebeff3;
+    color: black;
+  }
+
+  /* Media Query for large screens */
+  @media (min-width: 992px) {
+    .navbar-collapse {
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .navbar-nav {
+      margin-left: auto;
+    }
+
+    .search-inp {
+      max-width: 200px;
+    }
+
+    .navbar-brand {
+      font-size: 1.5rem;
+    }
+
+    .search-btn {
+      font-size: 1rem;
+      padding: 0.5rem 1.5rem;
+    }
+
+    .navbar-toggler {
+      display: none; /* Hide the toggle button on large screens */
+    }
+  }
+
+  /* Media Query for extra large screens */
+  @media (min-width: 1200px) {
+    .navbar {
+      padding: 1rem 2rem;
+    }
+
+    .search-btn {
+      font-size: 1.1rem;
+      padding: 0.5rem 2rem;
+    }
+
+    .navbar-brand {
+      font-size: 2rem;
+    }
+
+    .search-inp {
+      max-width: 250px;
+    }
+
+    .dark_view{
+      padding: 20px;
+    }
+    
+  }
+
+  .search-inp {
+    border-radius: 25px;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.9rem;
+    max-width: 150px;
+  }
+
+  .search-btn {
+    background-color: #fe424d;
+    color: #fff;
+    border-radius: 25px;
+    padding: 0 1rem;
+    font-size: 0.9rem;
+  }
 </style>
 
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top adj">
+  <div class="container-fluid d-flex align-items-center justify-content-between">
+    
+    <!-- First Column: This will take 50% space on large screens -->
+   <div class="d-flex flex-column flex-md-row col-md-6">
+  <a class="navbar-brand" href="/listings">
+    <i class="fa-solid fa-compass"></i>
+  </a>
 
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/listings"><i class="fa-solid fa-compass"></i></a>
+  <div class="d-flex ms-md-auto justify-content-end align-items-center">
+    <form class="d-flex p-0 m-0" action="/search" method="GET">
+      <input class="form-control me-2 search-inp" 
+             name="search" 
+             placeholder="Search destinations" 
+             aria-label="Search">
+      <button class="search-btn" type="submit">
+        <i class="fa-solid fa-magnifying-glass"></i>Search
+      </button>
+    </form>
+  </div>
+</div>
+
+  
+    <!-- Second Column: This will take 50% space on large screens -->
+    <div class="d-flex flex-column flex-md-row col-md-6 justify-content-end">
+      <div class="m-3">
+        <a class="nav-link darkMode" href="#" id="darkModeToggleLink">
+          <input type="checkbox" id="darkModeToggle">
+          <i class="fa-solid fa-circle-half-stroke"></i>
+        </a>
+      </div>
+  
       <button class="navbar-toggler" 
-      type="button" 
-      data-bs-toggle="collapse" 
-      data-bs-target="#navbarNavAltMarkup" >
+              type="button" 
+              data-bs-toggle="collapse" 
+              data-bs-target="#navbarNavAltMarkup"
+              aria-expanded="false" 
+              aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link" href="/listings">Explore</a>
-        </div>
-        <div class="navbar-nav ms-auto">
-          <form class="d-flex" action="/search" method="GET" >
-            <input class="form-control me-2 search-inp" name="search" placeholder="Search destinations" aria-label="Search">
-            <button class="search-btn" type="submit">
-              <i class="fa-solid fa-magnifying-glass"></i>Search</button>
-          </form>
-        </div>
-        <div class="navbar-nav ms-auto">
-          <a class="nav-link darkMode" href="#">
-            <input type="checkbox" id="darkModeToggle">
-            <i class="fa-solid fa-circle-half-stroke"></i>
-          </a>
-          <a class="nav-link" href="/listings/new">Airnb your home</a>
-          <% if(!currUser) { %>
-          <a class="nav-link" href="/signup"><b>Sign Up</b></a>
-          <a class="nav-link" href="/login"><b>Log in</b></a>
-          <% } %><% if(currUser) { %>
-          <a class="nav-link" href="/logout">Log out</a>
-          <% } %>
-        </div> 
-        <script src="/js/darkMode.js"></script> 
-      </div>
     </div>
+  
+  </div>
+
+  <!-- Navbar links (collapse on smaller screens) -->
+  <div class="collapse navbar-collapse bg-white text-black m-0 p-0" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-link" href="/listings">Explore</a>
+      <a class="nav-link" href="/listings/new">Airbnb your home</a>
+  
+      <% if (!currUser) { %>
+        <a class="nav-link" href="/signup"><b>Sign Up</b></a>
+        <a class="nav-link" href="/login"><b>Log in</b></a>
+      <% } %>
+  
+      <% if (currUser) { %>
+        <a class="nav-link" href="/logout">Log out</a>
+      <% } %>
+    </div>
+  </div>
 </nav>
+

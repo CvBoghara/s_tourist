@@ -66,6 +66,10 @@ footer .f-info-socials i:hover {
 }
 
 /* Cards */
+.card.col.listing-card{
+    background-color: #b8b3b3;
+}
+
 .listing-card {
     border: none !important;
     margin-bottom: 2rem;
@@ -119,7 +123,7 @@ div.card-body{
 .add-btn:hover, .edit-btn:hover {
     background-color: #e33d42;
 }
-
+    
 /* Show Page */
 .show-img {
     height: 30vh;
@@ -138,7 +142,7 @@ div.card-body{
 }
 
 .show-card {
-    
+
     padding-left: 0;
     padding-right: 0;
 }
@@ -161,6 +165,8 @@ div.card-body{
 }
 
 /* Dark Mode Styles */
+
+
 body.dark-mode .navbar {
     background-color: #333;
     color: white;
@@ -203,7 +209,7 @@ body.dark-mode .navbar {
 }
 
 .nav-link {
-    color: #222222 !important;
+    color:black !important;
     text-decoration: none;
     transition: color 0.3s;
 }
@@ -214,11 +220,7 @@ body.dark-mode .navbar {
 
 /* Dark Mode for links */
 body.dark-mode .nav-link {
-    color: #f0f0f0 !important;
-}
-
-body.dark-mode .nav-link:hover {
-    color: lightgray;
+    color: black !important;
 }
 
 body.dark-mode .tax-toggle{
@@ -235,9 +237,7 @@ body.dark-mode .navbar {
     color: white;
 }
 
-body.dark-mode .nav-link {
-    color: white;
-}
+
 
 body.dark-mode .nav-link:hover {
     color: lightgray;
@@ -325,6 +325,7 @@ body.dark-mode .card-img-overlay:hover {
     }
 
 
-
-
-
+      .navbar-toggler-icon {
+        background-color: #ffffff; /* Optional: Customize the color */
+      }
+ 

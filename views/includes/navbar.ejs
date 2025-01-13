@@ -1,176 +1,181 @@
-<style>
-  .navbar {
-    padding: 0.5rem 1rem;
-  }
-
-  .navbar-toggler {
-    padding: 0.25rem 0.5rem;
-    font-size: 1rem;
-  }
-
-  .search-btn {
-    background-color: #fe424d;
-    color: #fff;
-    border-radius: 25px;
-    padding: 0 1rem;
-    font-size: 0.9rem;
-  }
-
-  .search-btn:hover {
-    background-color: #fe424d;
-    color: #fff;
-  }
-
-  .search-inp {
-    border-radius: 25px;
-    padding: 0.3rem 0.8rem;
-    font-size: 0.9rem;
-    max-width: 150px;
-  }
-
-  .navbar-collapse {
-    flex-direction: column;
-    align-items: flex-end;
-    background-color: #fff;
-    transition: height 0.3s ease;
-    padding: 0.5rem 1rem;
-  }
-
-  .bg-custom-dark-blue {
-    background-color: #ebeff3;
-    color: black;
-  }
-
-  /* Media Query for large screens */
-  @media (min-width: 992px) {
-    .navbar-collapse {
-      flex-direction: row;
-      align-items: center;
-      justify-content: flex-end;
-    }
-
-    .navbar-nav {
-      margin-left: auto;
-    }
-
-    .search-inp {
-      max-width: 200px;
-    }
-
-    .navbar-brand {
-      font-size: 1.5rem;
-    }
-
-    .search-btn {
-      font-size: 1rem;
-      padding: 0.5rem 1.5rem;
-    }
-
-    .navbar-toggler {
-      display: none; /* Hide the toggle button on large screens */
-    }
-  }
-
-  /* Media Query for extra large screens */
-  @media (min-width: 1200px) {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dark Mode Navbar</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* Navbar styling */
     .navbar {
-      padding: 1rem 2rem;
+      height: 70px; /* Fixed height */
+      transition: background-color 0.3s, color 0.3s;
     }
 
     .search-btn {
-      font-size: 1.1rem;
-      padding: 0.5rem 2rem;
+      background-color: #fe424d;
+      color: #fff;
+      border-radius: 25px;
+      padding: 0 1rem;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
     }
 
-    .navbar-brand {
-      font-size: 2rem;
+    .search-btn i {
+      margin-right: 0.5rem;
+    }
+
+    .search-btn:hover {
+      background-color: #dc3545;
     }
 
     .search-inp {
-      max-width: 250px;
+      border-radius: 25px;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
     }
 
-    .dark_view{
+    /* Light and Dark Mode Styles */
+    body.light-mode {
+      background-color: #f8f9fa;
+      color: #212529;
+    }
+
+    body.dark-mode {
+      background-color: rgba(33, 37, 41, 0.9);
+      color: #f8f9fa;
+    }
+
+    body.dark-mode .navbar {
+      background-color: rgba(52, 58, 64, 0.9);
+      color: #f8f9fa;
+    }
+
+    body.dark-mode .navbar a {
+      color: #f8f9fa;
+    }
+
+    body.dark-mode .navbar .form-control {
+      background-color: rgba(73, 80, 87, 0.8);
+      color: #f8f9fa;
+    }
+
+    /* Transparent transition during toggle */
+    body.transparency-transition * {
+      transition: background-color 0.5s, color 0.5s;
+    }
+
+
+    .hidden-content {
+      display: none;  /* Initially hidden */
       padding: 20px;
+      background-color: #f8f9fa;
+      border-radius: 5px;
     }
-    
-  }
-
-  .search-inp {
-    border-radius: 25px;
-    padding: 0.3rem 0.8rem;
-    font-size: 0.9rem;
-    max-width: 150px;
-  }
-
-  .search-btn {
-    background-color: #fe424d;
-    color: #fff;
-    border-radius: 25px;
-    padding: 0 1rem;
-    font-size: 0.9rem;
-  }
-</style>
-
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top adj">
-  <div class="container-fluid d-flex align-items-center justify-content-between">
-    
-    <!-- First Column: This will take 50% space on large screens -->
-   <div class="d-flex flex-column flex-md-row col-md-6">
-  <a class="navbar-brand" href="/listings">
-    <i class="fa-solid fa-compass"></i>
-  </a>
-
-  <div class="d-flex ms-md-auto justify-content-end align-items-center">
-    <form class="d-flex p-0 m-0" action="/search" method="GET">
-      <input class="form-control me-2 search-inp" 
-             name="search" 
-             placeholder="Search destinations" 
-             aria-label="Search">
-      <button class="search-btn" type="submit">
-        <i class="fa-solid fa-magnifying-glass"></i>Search
-      </button>
-    </form>
-  </div>
-</div>
-
+    .btn-toggle {
+      background-color: #d3d3d3;
+      color: white;
+      border: none;
+    }
+    .btn-toggle:hover {
+      background-color: #0056b3;
+    }
   
-    <!-- Second Column: This will take 50% space on large screens -->
-    <div class="d-flex flex-column flex-md-row col-md-6 justify-content-end">
-      <div class="m-3">
-        <a class="nav-link darkMode" href="#" id="darkModeToggleLink">
-          <input type="checkbox" id="darkModeToggle">
-          <i class="fa-solid fa-circle-half-stroke"></i>
-        </a>
-      </div>
-  
-      <button class="navbar-toggler" 
-              type="button" 
-              data-bs-toggle="collapse" 
-              data-bs-target="#navbarNavAltMarkup"
-              aria-expanded="false" 
-              aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </div>
-  
-  </div>
+  </style>
+</head>
+<body class="light-mode transparency-transition">
+    <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+        <div class="container-fluid">
+          <!-- Left-aligned compass icon -->
+          <a class="navbar-brand" href="/listings">
+            <i class="fa-solid fa-compass"></i>
+          </a>
+      
+          <!-- Toggle button for small screens -->
+          <button id="toggleButton" type="button" class="navbar-toggler d-md-none ms-auto pe-3 me-3 border-light" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <!-- Collapsible content -->
+          <div id="hiddenContent" class="collapse navbar-collapse bg-secondary text-light rounded p-1" id="navbarNavAltMarkup">
+            <!-- Right-aligned "Explore" link -->
+            <div class="navbar-nav ms-auto me-auto">
+              <a class="nav-link" href="/listings">Explore</a>
+            </div>
+      
+            <!-- Centered search bar and dark mode toggle button -->
+            <div class="navbar-nav mx-auto">
+              <form class="d-flex" role="search">
+                <input class="form-control me-2 search-inp" type="search" placeholder="Search destinations" aria-label="Search">
+                <button class="search-btn" type="submit">
+                  <i class="fa-solid fa-magnifying-glass"></i>Search
+                </button>
+              </form>
+              <button id="darkModeToggle" class="btn">
+                <i class="fa-solid fa-circle-half-stroke"></i>
+              </button>
+            </div>
+      
+            <!-- Right-aligned user auth links -->
+            <div class="navbar-nav ms-auto">
+              <a class="nav-link" href="/listings/new">Airbnb your home</a>
+              <% if (!currUser) { %>
+              <a class="nav-link" href="/signup"><b>Sign Up</b></a>
+              <a class="nav-link" href="/login"><b>Log in</b></a>
+              <% } %>
+              <% if (currUser) { %>
+              <a class="nav-link" href="/logout">Log out</a>
+              <% } %>
+            </div>
+          </div>
+        </div>
+      </nav>
+      
+      
+  <script>
 
-  <!-- Navbar links (collapse on smaller screens) -->
-  <div class="collapse navbar-collapse bg-white text-black m-0 p-0" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-link" href="/listings">Explore</a>
-      <a class="nav-link" href="/listings/new">Airbnb your home</a>
-  
-      <% if (!currUser) { %>
-        <a class="nav-link" href="/signup"><b>Sign Up</b></a>
-        <a class="nav-link" href="/login"><b>Log in</b></a>
-      <% } %>
-  
-      <% if (currUser) { %>
-        <a class="nav-link" href="/logout">Log out</a>
-      <% } %>
-    </div>
-  </div>
-</nav>
+    const toggleButton = document.getElementById('toggleButton');
+        const hiddenContent = document.getElementById('hiddenContent');
 
+        // Function to toggle the visibility of the content
+        toggleButton.addEventListener('click', function() {
+        if (hiddenContent.style.display === 'none' || hiddenContent.style.display === '') {
+            hiddenContent.style.display = 'block'; 
+        } else {
+            hiddenContent.style.display = 'none';  
+        }
+        });
+
+
+    const darkModeToggle = document.getElementById("darkModeToggle");
+    // Function to toggle the mode
+    function toggleMode() {
+      if (document.body.classList.contains("light-mode")) {
+        document.body.classList.replace("light-mode", "dark-mode");
+        localStorage.setItem("theme", "dark");
+      } else {
+        document.body.classList.replace("dark-mode", "light-mode");
+        localStorage.setItem("theme", "light");
+      }
+    }
+
+    // Initialize mode from localStorage
+    const savedMode = localStorage.getItem("theme") || "light";
+    document.body.classList.add(`${savedMode}-mode`);
+
+    // Add toggle event listener
+    darkModeToggle.addEventListener("click", toggleMode);
+
+    // Handle transparency transition
+    document.body.classList.add("transparency-transition");
+
+     
+
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
